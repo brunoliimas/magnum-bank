@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "teste@email.com",
+      "password": "senha",
+      "transactionPassword": "123",
+      "name": "Maria Teste",
+      "cpfCnpj": "123.456.789-00",
+      "balance": 1500
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "userId": 1,
+      "type": "PIX",
+      "date": "2024-05-15T10:30:00Z",
+      "value": -150,
+      "beneficiaryName": "João Silva",
+      "beneficiaryCpfCnpj": "987.654.321-00",
+      "key": "joaosilva@email.com",
+      "currentBalance": 1650,
+      "description": "Transferência para João"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "type": "TED",
+      "date": "2024-05-14T15:45:00Z",
+      "value": 500,
+      "beneficiaryName": "Empresa XPTO",
+      "beneficiaryCpfCnpj": "12.345.678/0001-90",
+      "bank": "Banco Digital",
+      "agency": "0001",
+      "account": "98765-4",
+      "currentBalance": 1150,
+      "description": "Pagamento de serviço"
+    }
+  ]
+}
