@@ -1,19 +1,27 @@
 {
   "users": [
     {
-      "id": 1,
-      "email": "teste@email.com",
-      "password": "senha",
-      "transactionPassword": "123",
-      "name": "Maria Teste",
+      "id": "1a2b",
+      "email": "bruno@email.com",
+      "password": "10203040",
+      "transactionPassword": "1020",
+      "name": "Bruno Lima",
       "cpfCnpj": "123.456.789-00",
       "balance": 1500
+    },
+    {
+      "id": "4d83",
+      "email": "lula@email.com",
+      "password": "10203040",
+      "name": "Lula Silva",
+      "balance": 1000,
+      "transactionPassword": "123"
     }
   ],
   "transactions": [
     {
       "id": 1,
-      "userId": 1,
+      "userId": "1a2b",
       "type": "PIX",
       "date": "2024-05-15T10:30:00Z",
       "value": -150,
@@ -25,7 +33,7 @@
     },
     {
       "id": 2,
-      "userId": 1,
+      "userId": "1a2b",
       "type": "TED",
       "date": "2024-05-14T15:45:00Z",
       "value": 500,

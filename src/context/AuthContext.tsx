@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import api from '../services/api';
-import type { User} from '../types';
+import type { User } from '../types';
 import { AuthContext } from './auth-context';
 
 export interface AuthContextType {
@@ -10,13 +10,21 @@ export interface AuthContextType {
     logout: () => void;
 }
 
-
 interface AuthProviderProps {
     children: React.ReactNode;
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+        setIsLoading(false);
+    }, []);
 
     const isAuthenticated = !!user;
 
@@ -27,8 +35,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
             if (foundUser) {
                 setUser(foundUser);
-                // Em uma aplicação real, aqui você receberia e armazenaria o JWT.
-                // Para o nosso mock, o simples fato de ter o user já é suficiente.
+                localStorage.setItem('user', JSON.stringify(foundUser));
                 return true;
             }
             return false;
@@ -40,11 +47,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const logout = () => {
         setUser(null);
+        localStorage.removeItem('user');
     };
 
     return (
         <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
-            {children}
+            {isLoading ? <div>Carregando...</div> : children}
         </AuthContext.Provider>
     );
 };
