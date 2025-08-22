@@ -4,16 +4,17 @@
       "id": "1a2b",
       "email": "bruno@email.com",
       "password": "10203040",
-      "transactionPassword": "1020",
       "name": "Bruno Lima",
       "cpfCnpj": "123.456.789-00",
-      "balance": 1500
+      "balance": 0,
+      "transactionPassword": "1020"
     },
     {
       "id": "4d83",
       "email": "lula@email.com",
       "password": "10203040",
       "name": "Lula Silva",
+      "cpfCnpj": "123.456.789-00",
       "balance": 1000,
       "transactionPassword": "123"
     }
@@ -33,6 +34,20 @@
     },
     {
       "id": 2,
+      "userId": "1a2b",
+      "type": "TED",
+      "date": "2024-05-14T15:45:00Z",
+      "value": 500,
+      "beneficiaryName": "Empresa XPTO",
+      "beneficiaryCpfCnpj": "12.345.678/0001-90",
+      "bank": "Banco Digital",
+      "agency": "0001",
+      "account": "98765-4",
+      "currentBalance": 1150,
+      "description": "Pagamento de serviço"
+    },
+    {
+      "id": 3,
       "userId": "1a2b",
       "type": "TED",
       "date": "2024-05-14T15:45:00Z",
