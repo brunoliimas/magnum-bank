@@ -8,6 +8,8 @@ export interface AuthContextType {
     isAuthenticated: boolean;
     login: (email: string, password: string) => Promise<boolean>;
     logout: () => void;
+    updateUser: (newUser: User) => void;
+
 }
 
 interface AuthProviderProps {
@@ -49,9 +51,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setUser(null);
         localStorage.removeItem('user');
     };
+    const updateUser = (newUser: User) => {
+        setUser(newUser);
+        localStorage.setItem('user', JSON.stringify(newUser));
+    };
 
     return (
-        <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
+        <AuthContext.Provider value={{ user, isAuthenticated, login, logout, updateUser }}>
             {isLoading ? <div>Carregando...</div> : children}
         </AuthContext.Provider>
     );

@@ -6,12 +6,16 @@ export interface User {
     name: string;
     cpfCnpj: string;
     balance: number;
+    newUser?: boolean;
+    bank?: string;
+    agency?: string;
+    account?: string;
 }
 
 export interface Transaction {
     id: number;
     userId: number;
-    type: 'PIX' | 'TED' ; // Usamos um tipo literal para restringir as opções
+    type: 'PIX' | 'TED'; // Usamos um tipo literal para restringir as opções
     date: string;
     value: number;
     beneficiaryName: string;

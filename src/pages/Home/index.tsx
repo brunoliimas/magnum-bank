@@ -20,12 +20,10 @@ const Home = () => {
 
       try {
         setIsLoading(true);
-        // Busca TODAS as transações para calcular o saldo corretamente
         const response = await api.get('/transactions', {
           params: { userId: user.id },
         });
 
-        // Ordena as transações pela data de forma decrescente para exibir as mais recentes
         const sortedTransactions = response.data.sort(
           (a: Transaction, b: Transaction) => new Date(b.date).getTime() - new Date(a.date).getTime()
         );
@@ -46,19 +44,6 @@ const Home = () => {
     logout();
     navigate('/login');
   };
-
-  // Calcula o saldo dinamicamente
-  const calculateBalance = () => {
-    if (!user) return 0;
-    
-    // Calcula a soma de todas as transações
-    const totalTransactions = transactions.reduce((sum, transaction) => sum + transaction.value, 0);
-
-    // O saldo do usuário no db.json agora será o saldo inicial
-    return user.balance + totalTransactions;
-  };
-
-  const currentBalance = calculateBalance();
 
   const getTransactionLabel = (transaction: Transaction) => {
     return transaction.value < 0 ? 'Transferência Enviada' : 'Transferência Recebida';
@@ -92,9 +77,31 @@ const Home = () => {
         </button>
       </div>
 
-      <div style={{ marginBottom: '40px' }}>
+      <div style={{ marginBottom: '20px' }}>
         <h3>Saldo atual:</h3>
-        <p style={{ fontSize: '2.5em', fontWeight: 'bold' }}>R$ {currentBalance.toFixed(2)}</p>
+        <p style={{ fontSize: '2.5em', fontWeight: 'bold' }}>R$ {user?.balance?.toFixed(2)}</p>
+      </div>
+
+      <div style={{ marginBottom: '40px', padding: '15px', border: '1px solid #ccc', borderRadius: '8px' }}>
+        <h3 style={{ marginTop: '0' }}>Dados Bancários</h3>
+        <p><strong>Banco:</strong> {user?.bank}</p>
+        <p><strong>Agência:</strong> {user?.agency}</p>
+        <p><strong>Conta:</strong> {user?.account}</p>
+      </div>
+
+      <div style={{ marginBottom: '40px', display: 'flex', justifyContent: 'center', gap: '20px' }}>
+        <button
+          onClick={() => navigate('/transfer')}
+          style={{ padding: '15px 30px', fontSize: '18px', cursor: 'pointer' }}
+        >
+          Fazer Transferência
+        </button>
+        <button
+          onClick={() => navigate('/history')}
+          style={{ padding: '15px 30px', fontSize: '18px', cursor: 'pointer' }}
+        >
+          Ver Histórico
+        </button>
       </div>
 
       <div>

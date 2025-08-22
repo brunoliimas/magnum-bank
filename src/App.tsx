@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Transfer from './pages/Transfer';
 import TransactionHistory from './pages/TransactionHistory';
 import Register from './pages/Register';
+ import Deposit from './pages/Deposit';
 
 const PrivateRoutes = () => {
   const { isAuthenticated } = useAuth();
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/transfer" element={<Transfer />} />
         <Route path="/history" element={<TransactionHistory />} />
+        <Route path="/deposit" element={<Deposit />} />
       </Route>
     </Routes>
   );

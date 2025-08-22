@@ -1,64 +1,94 @@
 {
   "users": [
     {
-      "id": "1a2b",
-      "email": "bruno@email.com",
-      "password": "10203040",
+      "id": "2686",
+      "email": "bruno.lima@gmail.com",
+      "password": "102030",
       "name": "Bruno Lima",
-      "cpfCnpj": "123.456.789-00",
-      "balance": 0,
-      "transactionPassword": "1020"
+      "cpfCnpj": "12345678900",
+      "balance": 700,
+      "transactionPassword": "1020",
+      "newUser": false,
+      "bank": "Magnum Bank",
+      "agency": "0001",
+      "account": "33990-5"
     },
     {
-      "id": "4d83",
-      "email": "lula@email.com",
-      "password": "10203040",
-      "name": "Lula Silva",
-      "cpfCnpj": "123.456.789-00",
-      "balance": 1000,
-      "transactionPassword": "123"
+      "id": "9b75",
+      "email": "maria.lima@gmail.com",
+      "password": "102030",
+      "name": "Maria Lima",
+      "cpfCnpj": "98765432100",
+      "balance": 800,
+      "transactionPassword": "1020",
+      "newUser": false,
+      "bank": "Magnum Bank",
+      "agency": "0001",
+      "account": "74700-6"
     }
   ],
   "transactions": [
     {
-      "id": 1,
-      "userId": "1a2b",
+      "id": "ed5c",
+      "userId": "2686",
+      "type": "DEPÓSITO",
+      "date": "2025-08-22T04:51:22.346Z",
+      "value": 1000,
+      "description": "Depósito inicial na conta"
+    },
+    {
+      "id": "03cd",
+      "userId": "9b75",
+      "type": "DEPÓSITO",
+      "date": "2025-08-22T04:51:59.556Z",
+      "value": 500,
+      "description": "Depósito inicial na conta"
+    },
+    {
+      "id": "6a83",
+      "userId": "2686",
       "type": "PIX",
-      "date": "2024-05-15T10:30:00Z",
-      "value": -150,
-      "beneficiaryName": "João Silva",
-      "beneficiaryCpfCnpj": "987.654.321-00",
-      "key": "joaosilva@email.com",
-      "currentBalance": 1650,
-      "description": "Transferência para João"
+      "date": "2025-08-22T04:57:30.186Z",
+      "value": -200,
+      "beneficiaryName": "Maria Lima",
+      "beneficiaryCpfCnpj": "98765432100",
+      "description": "Transferência enviada para Maria Lima"
     },
     {
-      "id": 2,
-      "userId": "1a2b",
-      "type": "TED",
-      "date": "2024-05-14T15:45:00Z",
-      "value": 500,
-      "beneficiaryName": "Empresa XPTO",
-      "beneficiaryCpfCnpj": "12.345.678/0001-90",
-      "bank": "Banco Digital",
-      "agency": "0001",
-      "account": "98765-4",
-      "currentBalance": 1150,
-      "description": "Pagamento de serviço"
+      "id": "2fd2",
+      "userId": "9b75",
+      "type": "PIX",
+      "date": "2025-08-22T04:57:30.186Z",
+      "value": 200,
+      "beneficiaryName": "Bruno Lima",
+      "beneficiaryCpfCnpj": "12345678900",
+      "description": "Transferência recebida de Bruno Lima"
     },
     {
-      "id": 3,
-      "userId": "1a2b",
+      "id": "a9b2",
+      "userId": "2686",
       "type": "TED",
-      "date": "2024-05-14T15:45:00Z",
-      "value": 500,
-      "beneficiaryName": "Empresa XPTO",
-      "beneficiaryCpfCnpj": "12.345.678/0001-90",
-      "bank": "Banco Digital",
+      "date": "2025-08-22T04:58:01.727Z",
+      "value": -100,
+      "beneficiaryName": "Maria Lima",
+      "beneficiaryCpfCnpj": "98765432100",
+      "description": "Transferência enviada para Maria Lima",
+      "bank": "Magnum Bank",
       "agency": "0001",
-      "account": "98765-4",
-      "currentBalance": 1150,
-      "description": "Pagamento de serviço"
+      "account": "74700-6"
+    },
+    {
+      "id": "7f93",
+      "userId": "9b75",
+      "type": "TED",
+      "date": "2025-08-22T04:58:01.727Z",
+      "value": 100,
+      "beneficiaryName": "Bruno Lima",
+      "beneficiaryCpfCnpj": "12345678900",
+      "description": "Transferência recebida de Bruno Lima",
+      "bank": "Magnum Bank",
+      "agency": "0001",
+      "account": "74700-6"
     }
   ]
 }
