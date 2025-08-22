@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/hooks/useAuth';
 import type { Transaction } from '../../types';
 import api from '../../services/api';
-import { Button } from '@/components/ui/button';
 
 const Home = () => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -41,10 +40,7 @@ const Home = () => {
     fetchTransactions();
   }, [user]);
 
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
+
 
   const getTransactionLabel = (transaction: Transaction) => {
     return transaction.value < 0 ? 'Transferência Enviada' : 'Transferência Recebida';
@@ -60,11 +56,6 @@ const Home = () => {
 
   return (
     <div style={{ padding: '20px', textAlign: 'center' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
-        <h1>Bem-vindo, {user?.name}!</h1>
-        <Button onClick={handleLogout} variant="destructive">Sair</Button>
-
-      </div>
 
       <div style={{ marginBottom: '20px' }}>
         <h3>Saldo atual:</h3>

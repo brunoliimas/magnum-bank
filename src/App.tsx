@@ -5,7 +5,8 @@ import Home from './pages/Home';
 import Transfer from './pages/Transfer';
 import TransactionHistory from './pages/TransactionHistory';
 import Register from './pages/Register';
- import Deposit from './pages/Deposit';
+import Deposit from './pages/Deposit';
+import MainLayout from './components/layout/MainLayout';
 
 const PrivateRoutes = () => {
   const { isAuthenticated } = useAuth();
@@ -18,10 +19,26 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route element={<PrivateRoutes />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/transfer" element={<Transfer />} />
-        <Route path="/history" element={<TransactionHistory />} />
-        <Route path="/deposit" element={<Deposit />} />
+        <Route path="/" element={
+          <MainLayout>
+            <Home />
+          </MainLayout>
+        } />
+        <Route path="/transfer" element={
+          <MainLayout>
+            <Transfer />
+          </MainLayout>
+        } />
+        <Route path="/history" element={
+          <MainLayout>
+            <TransactionHistory />
+          </MainLayout>
+        } />
+        <Route path="/deposit" element={
+          <MainLayout>
+            <Deposit />
+          </MainLayout>
+        } />
       </Route>
     </Routes>
   );
