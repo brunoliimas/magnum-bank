@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/hooks/useAuth';
 import type { Transaction } from '../../types';
 import api from '../../services/api';
+import { Button } from '@/components/ui/button';
 
 const Home = () => {
   const { user, logout } = useAuth();
@@ -61,20 +62,8 @@ const Home = () => {
     <div style={{ padding: '20px', textAlign: 'center' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
         <h1>Bem-vindo, {user?.name}!</h1>
-        <button
-          onClick={handleLogout}
-          style={{
-            padding: '10px 20px',
-            fontSize: '16px',
-            cursor: 'pointer',
-            backgroundColor: '#f44336',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px'
-          }}
-        >
-          Sair
-        </button>
+        <Button onClick={handleLogout} variant="destructive">Sair</Button>
+
       </div>
 
       <div style={{ marginBottom: '20px' }}>
