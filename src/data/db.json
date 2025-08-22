@@ -6,7 +6,7 @@
       "password": "102030",
       "name": "Bruno Lima",
       "cpfCnpj": "12345678900",
-      "balance": 700,
+      "balance": 800,
       "transactionPassword": "1020",
       "newUser": false,
       "bank": "Magnum Bank",
@@ -19,7 +19,7 @@
       "password": "102030",
       "name": "Maria Lima",
       "cpfCnpj": "98765432100",
-      "balance": 800,
+      "balance": 700,
       "transactionPassword": "1020",
       "newUser": false,
       "bank": "Magnum Bank",
@@ -63,32 +63,6 @@
       "beneficiaryName": "Bruno Lima",
       "beneficiaryCpfCnpj": "12345678900",
       "description": "Transferência recebida de Bruno Lima"
-    },
-    {
-      "id": "a9b2",
-      "userId": "2686",
-      "type": "TED",
-      "date": "2025-08-22T04:58:01.727Z",
-      "value": -100,
-      "beneficiaryName": "Maria Lima",
-      "beneficiaryCpfCnpj": "98765432100",
-      "description": "Transferência enviada para Maria Lima",
-      "bank": "Magnum Bank",
-      "agency": "0001",
-      "account": "74700-6"
-    },
-    {
-      "id": "7f93",
-      "userId": "9b75",
-      "type": "TED",
-      "date": "2025-08-22T04:58:01.727Z",
-      "value": 100,
-      "beneficiaryName": "Bruno Lima",
-      "beneficiaryCpfCnpj": "12345678900",
-      "description": "Transferência recebida de Bruno Lima",
-      "bank": "Magnum Bank",
-      "agency": "0001",
-      "account": "74700-6"
     }
   ]
 }

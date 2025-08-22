@@ -1,69 +1,93 @@
-# React + TypeScript + Vite
+# 💳 Magnum Bank - Aplicação Bancária Digital
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação web de banco digital simples e funcional, desenvolvida com **React** e uma **API mockada**.
+O projeto simula o fluxo completo de um usuário, desde o registro até a realização de transações financeiras.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💻 Funcionalidades Implementadas
 
-## Expanding the ESLint configuration
+* **Autenticação:** Sistema de registro e login com validações básicas.
+* **Dados Bancários Automáticos:** No registro, cada novo usuário recebe automaticamente dados de banco, agência e uma conta aleatória.
+* **Páginas Protegidas:** As rotas são protegidas, exigindo que o usuário esteja autenticado para acessá-las.
+* **Gestão de Saldo:** Fluxo de depósito inicial e visualização de saldo em tempo real na tela inicial.
+* **Transferências:** Suporte para transações via **PIX** (usando CPF/CNPJ como chave) e **TED**.
+* **Autocompletar:** Ao preencher o CPF/CNPJ do favorecido, os campos de nome, banco e conta são preenchidos automaticamente.
+* **Histórico de Transações:** Tela dedicada que lista todas as transações realizadas e permite filtragem e ordenação por:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  * Tipo de transação (PIX, TED, Depósito, Envios, Recebidos).
+  * Período (7, 15, 30, 90 dias ou personalizado).
+  * Intervalo de valores (mínimo e máximo).
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🚀 Como Rodar a Aplicação Localmente
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Siga estas instruções para configurar e executar o projeto em sua máquina.
+
+### 🔧 Pré-requisitos
+
+Certifique-se de ter o [Node.js](https://nodejs.org/) e o `npm` instalados.
+
+### 1. Clonar o Repositório
+
+```bash
+git clone <URL_DO_SEU_REPOSITORIO>
+cd <NOME_DO_SEU_REPOSITORIO>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Instalar as Dependências
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Iniciar a API Mock
+
+A aplicação utiliza o **json-server** como uma API mock. É necessário iniciar o servidor antes de rodar o frontend.
+
+```bash
+npm run server
+```
+
+### 4. Iniciar a Aplicação
+
+Com o servidor da API rodando em um terminal, abra um novo terminal e inicie a aplicação React:
+
+```bash
+npm start
+```
+
+A aplicação será aberta automaticamente em seu navegador padrão em:
+
+* **[http://localhost:3000](http://localhost:3000)**
+
+---
+
+## ⚙️ Estrutura do Projeto e Decisões Técnicas
+
+* **Frontend:** Desenvolvido com **React** e **TypeScript** para um desenvolvimento mais seguro e escalável.
+* **Mock API:** Utilizamos o **json-server** para simular um backend, persistindo os dados de usuários e transações no arquivo `db.json`.
+* **Gerenciamento de Estado:** O **Context API** do React (`AuthContext.tsx`) é usado para gerenciar o estado do usuário (autenticação, saldo, etc.) de forma global.
+* **Roteamento:** O **React Router DOM** é usado para gerenciar a navegação entre as páginas e proteger as rotas privadas.
+* **Estilização:** A aplicação utiliza **CSS inline**. Para um projeto maior, a recomendação seria usar um sistema de estilização mais robusto (ex: CSS Modules, Styled Components, Tailwind CSS).
+
+---
+
+## ✅ Testes Automatizados
+
+Este projeto **não inclui testes automatizados** (testes de unidade ou de integração). No entanto, para projetos de produção, a recomendação seria a utilização de bibliotecas como o **Jest** e o **React Testing Library**.
+
+Para executar os testes, utilize o comando:
+
+```bash
+npm test
+```
+
+---
+
+## 🎥 Demonstração (Opcional)
+
+Você pode ver a aplicação em funcionamento neste link:
+
+\<LINK\_PARA\_DEMONSTRACAO\_VERCEL\_OU\_NETLIFY>
